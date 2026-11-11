@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}регистрация{% endblock %}
+
+{% block main %}
+<h1>регистрация</h1>
+
+<form class="stack" method="post">
+    <input name="username" placeholder="юзернейм" autocomplete="username" autofocus>
+    <input name="password" type="password" placeholder="пароль" autocomplete="new-password">
+    <input name="confirmation" type="password" placeholder="повтори пароль" autocomplete="new-password">
+
+    {% if error %}<span class="error">{{ error }}</span>{% endif %}
+
+    <button>создать аккаунт</button>
+</form>
+
+<p class="footer muted">уже есть аккаунт? <a href="/auth/login"><u>войти</u></a></p>
+{% endblock %}

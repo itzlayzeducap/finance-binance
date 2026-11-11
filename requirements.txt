@@ -1,0 +1,4 @@
+flask[async]
+bcrypt
+aiohttp
+aiosqlite

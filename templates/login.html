@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}вход{% endblock %}
+
+{% block main %}
+<h1>вход</h1>
+
+<form class="stack" method="post">
+    <input name="username" placeholder="юзернейм" autocomplete="username" autofocus>
+    <input name="password" type="password" placeholder="пароль" autocomplete="current-password">
+
+    {% if error %}<span class="error">{{ error }}</span>{% endif %}
+
+    <button>войти</button>
+</form>
+
+<p class="footer muted">нет аккаунта? <a href="/auth/register"><u>зарегистрироваться</u></a></p>
+{% endblock %}

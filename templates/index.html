@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<h1>портфель</h1>
+
+{% if stocks %}
+<table>
+    <tr>
+        <th>тикер</th>
+        <th class="num">кол-во</th>
+        <th class="num">цена</th>
+        <th class="num">стоимость</th>
+    </tr>
+    {% for stock in stocks %}
+    <tr>
+        <td>
+            {{ stock.symbol }}
+            <span class="muted">{{ stock.name }}</span>
+        </td>
+        <td class="num">{{ stock.shares }}</td>
+        {% if stock.price is none %}
+        <td class="num muted">н/д</td>
+        <td class="num muted">н/д</td>
+        {% else %}
+        <td class="num">{{ stock.price | usd }}</td>
+        <td class="num">{{ stock.value | usd }}</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p class="muted">акций пока нет, <a href="/buy"><u>купи первую</u></a></p>
+{% endif %}
+
+<div class="summary">
+    <span class="muted">наличные {{ cash | usd }}</span>
+    <b>{{ total | usd }}</b>
+</div>
+{% endblock %}

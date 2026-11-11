@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}покупка{% endblock %}
+
+{% block main %}
+<h1>купить акции</h1>
+
+<form class="stack" method="post">
+    <input name="symbol" placeholder="тикер" value="{{ symbol }}" autocomplete="off" {% if not symbol %}autofocus{% endif %}>
+    <input name="shares" type="number" min="1" step="1" placeholder="количество" {% if symbol %}autofocus{% endif %}>
+
+    {% if error %}<span class="error">{{ error }}</span>{% endif %}
+
+    <button>купить</button>
+</form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}поиск{% endblock %}
+
+{% block main %}
+<h1>поиск акций</h1>
+
+<form class="stack" method="post">
+    <input name="symbol" placeholder="тикер, например AAPL" autocomplete="off" autofocus>
+
+    {% if error %}<span class="error">{{ error }}</span>{% endif %}
+
+    <button>найти</button>
+</form>
+
+{% if result %}
+<div class="result">
+    <div class="muted">{{ result.name }} · {{ result.symbol }}</div>
+    <div class="price">{{ result.price | usd }}</div>
+    <a href="/buy?symbol={{ result.symbol }}"><u>купить</u></a>
+</div>
+{% endif %}
+{% endblock %}

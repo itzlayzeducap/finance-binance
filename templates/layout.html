@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}finance{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <a class="logo" href="/">finance</a>
+
+        {% if g.user_id %}
+        <nav>
+            <a href="/quote">поиск</a>
+            <a href="/buy">купить</a>
+            <a href="/sell">продать</a>
+            <a href="/">портфель</a>
+            <a href="/history">история</a>
+            <a href="/auth/password">аккаунт</a>
+            <form method="post" action="/auth/logout">
+                <button class="link">выйти</button>
+            </form>
+        </nav>
+        {% endif %}
+    </header>
+
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+</body>
+</html>

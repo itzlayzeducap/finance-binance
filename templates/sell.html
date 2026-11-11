@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}продажа{% endblock %}
+
+{% block main %}
+<h1>продать акции</h1>
+
+{% if holdings %}
+<form class="stack" method="post">
+    <select name="symbol">
+        <option value="" disabled selected>акция</option>
+        {% for row in holdings %}
+        <option value="{{ row.symbol }}">{{ row.symbol }} ({{ row.shares }})</option>
+        {% endfor %}
+    </select>
+    <input name="shares" type="number" min="1" step="1" placeholder="количество">
+
+    {% if error %}<span class="error">{{ error }}</span>{% endif %}
+
+    <button>продать</button>
+</form>
+{% else %}
+<p class="muted">продавать нечего</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}история{% endblock %}
+
+{% block main %}
+<h1>история</h1>
+
+{% if rows %}
+<table>
+    <tr>
+        <th>тип</th>
+        <th>тикер</th>
+        <th class="num">цена</th>
+        <th class="num">кол-во</th>
+        <th class="num">дата</th>
+    </tr>
+    {% for row in rows %}
+    <tr>
+        <td>{{ "покупка" if row.type == "buy" else "продажа" }}</td>
+        <td>{{ row.symbol }}</td>
+        <td class="num">{{ row.price | usd }}</td>
+        <td class="num">{{ row.shares }}</td>
+        <td class="num muted">{{ row.timestamp }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p class="muted">операций пока нет</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,180 @@
+:root {
+    --bg: #111;
+    --text: #eee;
+    --muted: #888;
+    --line: #2a2a2a;
+    --error: #ff6b5b;
+    --ok: #4cc26b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.5 system-ui, sans-serif;
+}
+
+header,
+main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+}
+
+nav {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+nav form,
+td form {
+    margin: 0;
+}
+
+a,
+button.link {
+    color: var(--text);
+    text-decoration: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+}
+
+nav a,
+button.link {
+    color: var(--muted);
+}
+
+nav a:hover,
+button.link:hover,
+.logo {
+    color: var(--text);
+}
+
+.logo {
+    font-weight: 600;
+}
+
+main {
+    padding-top: 32px;
+    padding-bottom: 64px;
+}
+
+h1 {
+    margin: 0 0 24px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+form.stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 320px;
+}
+
+input,
+select {
+    padding: 8px 10px;
+    font: inherit;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--text);
+}
+
+button {
+    padding: 8px 14px;
+    font: inherit;
+    color: var(--bg);
+    background: var(--text);
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 10px 0;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+}
+
+th {
+    font-weight: 400;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.num {
+    text-align: right;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.error {
+    color: var(--error);
+}
+
+.ok {
+    color: var(--ok);
+}
+
+.summary {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-end;
+}
+
+.summary b {
+    font-size: 20px;
+}
+
+.result {
+    margin-top: 24px;
+}
+
+.result .price {
+    font-size: 28px;
+    margin: 4px 0 12px;
+}
+
+.footer {
+    margin-top: 24px;
+    font-size: 14px;
+}
+
+.section {
+    margin-top: 48px;
+}
